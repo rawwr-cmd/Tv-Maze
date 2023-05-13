@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { Fragment } from "react";
 import { useRouter } from "next/router";
 import { getAllShows } from "../helpers/api-util";
-import ShowsSearch from "../components/shows/show-search";
-// import EventList from "../../components/events/event-list";
+import ShowList from "../components/shows/show-list";
 
 const HomePage = ({ shows }) => {
+  // console.log(shows);
   const router = useRouter();
 
   const findShowshandler = (year, month) => {
@@ -14,7 +13,7 @@ const HomePage = ({ shows }) => {
   };
 
   return (
-    <Fragment>
+    <div>
       <Head>
         <title>All Shows</title>
         <meta
@@ -22,9 +21,8 @@ const HomePage = ({ shows }) => {
           content="Find a lot of great shows of all kinds!"
         />
       </Head>
-      <ShowsSearch onSearch={findShowshandler} />
       <ShowList items={shows} />
-    </Fragment>
+    </div>
   );
 };
 
@@ -35,7 +33,6 @@ export const getStaticProps = async () => {
     props: {
       shows: shows,
     },
-    revalidate: 60,
   };
 };
 
