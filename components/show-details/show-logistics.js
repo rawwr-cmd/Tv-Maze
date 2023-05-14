@@ -75,11 +75,6 @@ const ShowLogistics = ({
           <strong>Average Runtime: </strong>
           {movieRuntime}
         </LogisticsItem>
-        <div className={classes.actions}>
-          <Button>
-            <span>Book ticket</span>
-          </Button>
-        </div>
       </ul>
     </section>
   );

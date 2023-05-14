@@ -1,11 +1,13 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Button from "../ui/button";
 import classes from "./show-item.module.css";
-// import AddressIcon from "../icons/address-icon";
+
 import ArrowRight from "../icons/arrow-icon";
-// import DateIcon from "../icons/date-icon";
+import RatingIcon from "../icons/rating-icon";
+import MovieIcon from "../icons/movie-icon";
+import DateIcon from "../icons/date-icon";
 import fallback from "../../public/images/fallback.jpg";
-import { Fragment } from "react";
 
 const ShowItem = ({ title, image, date, id, genres, rating }) => {
   const imageUrl = image || fallback; // fallback image if 'image' prop is empty
@@ -34,14 +36,11 @@ const ShowItem = ({ title, image, date, id, genres, rating }) => {
         <div className={classes.summary}>
           <h2>{title}</h2>
           <div className={classes.date}>
-            {/* <DateIcon /> */}
+            <DateIcon />
             <time>PremieredOn: {humanReadableDate}</time>
           </div>
-          <div className={classes.address}>
-            {/* <AddressIcon /> */}
-            {/* <address>{formattedAddress}</address> */}
-          </div>
-          <div>
+          <div className={classes.movieIcon}>
+            <MovieIcon />
             <span>Genre: </span>
             {genres.map((genre, index) => (
               <Fragment key={index}>
@@ -50,7 +49,10 @@ const ShowItem = ({ title, image, date, id, genres, rating }) => {
               </Fragment>
             ))}
           </div>
-          <div>Rating: {userRating}</div>
+          <div className={classes.rate}>
+            <RatingIcon />
+            <address>Rating: {userRating}</address>
+          </div>
         </div>
         <div className={classes.actions}>
           <Button link={exploreLink}>

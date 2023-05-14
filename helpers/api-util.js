@@ -48,7 +48,7 @@ export const getFilteredShows = async (dateFilter) => {
 
   const allShows = await getAllShows();
   let filteredEvents = allShows.filter((e) => {
-    const showDate = new Date(e.date);
+    const showDate = new Date(e.premieredOn);
     return showDate.getFullYear() === year && showDate.getMonth() === month - 1;
   });
 

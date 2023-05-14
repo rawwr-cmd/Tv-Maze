@@ -8,8 +8,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Layout>
         <Head>
-          <title>Gotcha Events</title>
-          <meta name="description" content="get your events here" />
+          <title>Show Movies</title>
+          <meta name="description" content="get your shows here" />
           <meta
             name="viewpoint"
             content="width=device-width, initial-scale=1"

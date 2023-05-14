@@ -1,13 +1,16 @@
 import Head from "next/head";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { getShowById, getAllShows } from "../../helpers/api-util";
 import ShowSummary from "../../components/show-details/show-summary";
 import ShowLogistics from "../../components/show-details/show-logistics";
 import ShowContent from "../../components/show-details/show-content";
+import BookingForm from "../../components/input/booking-form";
 
+import Button from "../../components/ui/button";
 const ShowDetails = ({ selectedShow }) => {
   const show = selectedShow;
   //   console.log(show);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   if (!show) {
     return (
@@ -23,6 +26,14 @@ const ShowDetails = ({ selectedShow }) => {
     .replace(/<\/p>/g, "") // Remove </p> tags
     .replace(/<b[^>]*>/g, "") // Remove <b> tags
     .replace(/<\/b>/g, ""); // Remove </b> tags
+
+  const handleBookTicketClick = () => {
+    setIsFormVisible(true);
+  };
+
+  const handleCancelClick = () => {
+    setIsFormVisible(false);
+  };
 
   return (
     <Fragment>
@@ -44,6 +55,49 @@ const ShowDetails = ({ selectedShow }) => {
       <ShowContent>
         <p>{ShowDetails}</p>
       </ShowContent>
+      {!isFormVisible && (
+        <button
+          style={{
+            backgroundColor: "#ffffff",
+            color: "#03be9f",
+            border: "1px solid #03be9f",
+            borderRadius: "6px",
+            padding: "0.5rem 1rem",
+            cursor: "pointer",
+            marginLeft: "50%",
+            transform: "translateX(-50%)", // Center the button horizontally
+          }}
+          onClick={handleBookTicketClick}
+        >
+          Book Ticket
+        </button>
+      )}
+      {isFormVisible && (
+        <div>
+          <button
+            style={{
+              backgroundColor: "#ffffff",
+              color: "#ff0000",
+              border: "1px solid #ff0000",
+              borderRadius: "6px",
+              padding: "0.5rem 1rem",
+              cursor: "pointer",
+              marginLeft: "50%",
+              transform: "translateX(-50%)", // Center the button horizontally
+            }}
+            onClick={handleCancelClick}
+          >
+            Cancel
+          </button>
+          <BookingForm
+            bookingId={show.id}
+            showTitle={show.title}
+            language={show.language}
+            rating={show.rating}
+            genres={show.genres}
+          />
+        </div>
+      )}
     </Fragment>
   );
 };
