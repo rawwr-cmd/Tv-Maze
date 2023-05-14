@@ -6,7 +6,6 @@ import ShowLogistics from "../../components/show-details/show-logistics";
 import ShowContent from "../../components/show-details/show-content";
 import BookingForm from "../../components/input/booking-form";
 
-import Button from "../../components/ui/button";
 const ShowDetails = ({ selectedShow }) => {
   const show = selectedShow;
   //   console.log(show);

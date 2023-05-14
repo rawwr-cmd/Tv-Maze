@@ -1,20 +1,14 @@
 import Link from "next/link";
 
 import classes from "./main-header.module.css";
+import MovieIcon from "../icons/movie-icon";
 
 const MainHeader = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Link href="/">Gotcha Events</Link>
+        <Link href="/">MovieMaze</Link>
       </div>
-      <nav className={classes.navigation}>
-        <ul>
-          <li>
-            <Link href="/events">All Events</Link>
-          </li>
-        </ul>
-      </nav>
     </header>
   );
 };

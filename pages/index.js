@@ -1,17 +1,8 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { getAllShows } from "../helpers/api-util";
 import ShowList from "../components/shows/show-list";
 
 const HomePage = ({ shows }) => {
-  // console.log(shows);
-  const router = useRouter();
-
-  const findShowshandler = (year, month) => {
-    const fullPath = `/shows/${year}/${month}`;
-    router.push(fullPath);
-  };
-
   return (
     <div>
       <Head>

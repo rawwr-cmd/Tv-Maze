@@ -39,7 +39,7 @@ export const getAllShows = async () => {
 export const getShowById = async (id) => {
   const allShows = await getAllShows();
   const selectedShow = allShows.find((show) => show.id === id);
-  console.log(selectedShow);
+  // console.log(selectedShow);
   return selectedShow;
 };
 

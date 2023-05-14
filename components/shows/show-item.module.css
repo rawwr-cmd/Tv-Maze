@@ -26,14 +26,16 @@
 }
 
 .date,
-.rate {
+.rate,
+.movieIcon {
   display: flex;
   gap: 0.5rem;
   align-items: center;
 }
 
 .date svg,
-.rate svg {
+.rate svg,
+.movieIcon svg {
   width: 1.25rem;
   height: 1.25rem;
   color: #666666;

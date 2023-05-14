@@ -26,7 +26,6 @@ const ShowItem = ({ title, image, date, id, genres, rating }) => {
     humanReadableDate = "No date available";
   }
 
-  //   const formattedAddress = location.replace(", ", "\n");
   const exploreLink = `/shows/${id}`;
 
   return (
@@ -37,7 +36,7 @@ const ShowItem = ({ title, image, date, id, genres, rating }) => {
           <h2>{title}</h2>
           <div className={classes.date}>
             <DateIcon />
-            <time>PremieredOn: {humanReadableDate}</time>
+            <time>{humanReadableDate}</time>
           </div>
           <div className={classes.movieIcon}>
             <MovieIcon />
